@@ -14,7 +14,8 @@ const app = express();
 app.use(cors({
   origin: process.env.FRONTEND_URL || 'http://localhost:3000', // 프론트엔드 URL을 허용
   methods: ['GET', 'POST', 'PUT', 'DELETE'], // 허용할 HTTP 메서드
-  credentials: true // 쿠키 및 인증 정보를 허용 (필요한 경우)
+  credentials: true, // 쿠키 및 인증 정보를 허용 (필요한 경우)
+  allowedHeaders: ['Content-Type', 'Authorization'] // 허용할 헤더
 }));
 app.use(express.json());
 app.use('/api/auth', authRoutes);

@@ -141,6 +141,7 @@ export const register = async (req: Request, res: Response): Promise<void> => {
 
 export const login = async (req: Request, res: Response): Promise<void> => {
   const { email, password } = req.body;
+  res.setHeader('Content-Type', 'application/json'); // JSON 응답임을 명확히 지정
 
   try {
     const user = await User.findOne({ email });
